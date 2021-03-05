@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第五週模板</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/all.css">
+</head>
+
+<body>
+    <section class="addTicket-panel">
+        <div class="addTicket-img">
+            <img src="img/undraw_Traveling_re_weve (1)@2x.png" alt="">
+            <img src="img/Let’s Travel !.png" alt="">
+        </div>
+        <form action="" class="addTicket-form">
+            <h1 class="title"><span><i class="fas fa-plus-circle"></i></span>新增旅遊套票</h1>
+            <ul>
+                <li>
+                    <label for="ticketName">套票名稱</label>
+                    <div class="addTicket-input">
+                        <input type="text" id="ticketName" placeholder="請填寫套票名稱" name="套票名稱">
+                        <p class="alert-message">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span data-message="套票名稱">必填!</span>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <label for="ticketImgUrl">圖片網址</label>
+                    <div class="addTicket-input">
+                        <input type="text" id="ticketImgUrl" placeholder="請填寫圖片網址" name="圖片網址">
+                        <!-- <p class="alert-message">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span  id="ticketImgUrl-message">必填!</span>
+                        </p> -->
+                    </div>
+                </li>
+                <li>
+                    <label for="ticketRegion">景點地區</label>
+                    <div class="addTicket-input">
+                        <select id="ticketRegion" name="景點地區">
+                            <option value="請選擇景點地區" disabled selected>請選擇景點地區</option>
+                            <option value="台北">台北</option>
+                        </select>
+                        <!-- <p class="alert-message">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span id="ticketRegion-message">必填!</span>
+                        </p> -->
+                    </div>
+                </li>
+                <li>
+                    <label for="ticketPrice">套票金額</label>
+                    <div class="addTicket-input">
+                        <input type="text" id="ticketPrice" placeholder="請填寫套票金額" name="套票金額">
+                        <!-- <p class="alert-message">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span id="ticketPrice-message">必填!</span>
+                        </p> -->
+                    </div>
+                </li>
+                <li>
+                    <label for="ticketNum">套票組數</label>
+                    <div class="addTicket-input">
+                        <input type="number" id="ticketNum" placeholder="請填寫套票組數" name="套票組數">
+                        <!-- <p class="alert-message">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span id="ticketNum-message">必填!</span>
+                        </p> -->
+                    </div>
+                </li>
+                <li>
+                    <label for="ticketRank">套票星級</label>
+                    <div class="addTicket-input">
+                        <input type="number" id="ticketRank" placeholder="請填寫套票星級" name="套票星級">
+                        <!-- <p class="alert-message">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span id="ticketRank-message">必填!</span>
+                        </p> -->
+                    </div>
+                </li>
+                <li>
+                    <label for="ticketDescription">套票描述</label>
+                    <div class="addTicket-input">
+                        <textarea name="套票描述" id="ticketDescription" placeholder="請填寫套票描述 (限 100 字)"></textarea>
+                        <!-- <p class="alert-message">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span id="ticketDescription-message">必填!</span>
+                        </p> -->
+                    </div>
+                </li>
+            </ul>
+            <input type="submit" class="addTicket-btn btn" value="新增套票">
+        </form>
+    </section>
+    <section class="main-content">
+        <div class="search-area">
+            <div class="keywordSearch-panel">
+                <div class="keywordSearch">
+                    <input type="text" placeholder="請輸入景點關鍵字">
+                    <a href="#" class="search-btn btn">搜尋</a>
+                </div>
+            </div>
+            <div class="otherSearch">
+                <div class="otherSearch-select">
+                    <select name="" class="regionSearch">
+                        <option value="地區搜尋" disabled selected>地區搜尋</option>
+                    </select>
+                    <select name="" class="priceSearch">
+                        <option value="價位區間搜尋" disabled selected>價位區間搜尋</option>
+                    </select>
+                </div>
+                <p class="searchResult-text">本次搜尋共 <span id="searchResult-AllNum">56</span> 筆資料，目前顯示 <span id="searchResult-NowNum">6</span> 筆</p>
+            </div>
+        </div>
+        <div class="ticketCard-area">
+            <div class="ticketCard">
+                <div class="ticketCard-img">
+                    <img src="img/photo-1477894387642-00a731c511b3@2x.png" alt="">
+                    <div class="ticketCard-region">台北</div>
+                    <div class="ticketCard-rank">8.6</div>
+                </div>
+                <div class="ticketCard-content">
+                    <h3 class="ticketCard-name">
+                        綠島自由行套裝行程
+                    </h3>
+                    <p class="ticketCard-description">
+                        嚴選超高CP值綠島自由行套裝行程，多種綠島套裝組合，提供台東綠島來回船票、綠島環島機車、綠島民宿住宿，行程加贈『綠島浮潛體驗』以及『綠島生態導覽』，讓你用輕鬆的綠島套裝自由行，也能深度認識綠島在地文化。
+                    </p>
+                    <div class="ticketCard-info">
+                        <div class="ticketCard-num">
+                            <p>
+                                <span><i class="fas fa-exclamation-circle"></i></span> 
+                                剩下最後 <span id="ticketCard-num"> 8 </span> 組
+                            </p>
+                        </div>
+                        <p class="ticketCard-price">
+                            TWD <span id="ticketCard-price">$1280</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="ticketCard">
+                <div class="ticketCard-img">
+                    <img src="img/photo-1477894387642-00a731c511b3@2x.png" alt="">
+                    <div class="ticketCard-region">台北</div>
+                    <div class="ticketCard-rank">8.6</div>
+                </div>
+                <div class="ticketCard-content">
+                    <h3 class="ticketCard-name">
+                        綠島自由行套裝行程
+                    </h3>
+                    <p class="ticketCard-description">
+                        嚴選超高CP值綠島自由行套裝行程，多種綠島套裝組合，提供台東綠島來回船票、綠島環島機車、綠島民宿住宿，行程加贈『綠島浮潛體驗』以及『綠島生態導覽』，讓你用輕鬆的綠島套裝自由行，也能深度認識綠島在地文化。
+                    </p>
+                    <div class="ticketCard-info">
+                        <div class="ticketCard-num">
+                            <p>
+                                <span><i class="fas fa-exclamation-circle"></i></span> 
+                                剩下最後 <span id="ticketCard-num"> 8 </span> 組
+                            </p>
+                        </div>
+                        <p class="ticketCard-price">
+                            TWD <span id="ticketCard-price">$1280</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="ticketCard">
+                <div class="ticketCard-img">
+                    <img src="img/photo-1477894387642-00a731c511b3@2x.png" alt="">
+                    <div class="ticketCard-region">台北</div>
+                    <div class="ticketCard-rank">8.6</div>
+                </div>
+                <div class="ticketCard-content">
+                    <h3 class="ticketCard-name">
+                        綠島自由行套裝行程
+                    </h3>
+                    <p class="ticketCard-description">
+                        嚴選超高CP值綠島自由行套裝行程，多種綠島套裝組合，提供台東綠島來回船票、綠島環島機車、綠島民宿住宿，行程加贈『綠島浮潛體驗』以及『綠島生態導覽』，讓你用輕鬆的綠島套裝自由行，也能深度認識綠島在地文化。
+                    </p>
+                    <div class="ticketCard-info">
+                        <div class="ticketCard-num">
+                            <p>
+                                <span><i class="fas fa-exclamation-circle"></i></span> 
+                                剩下最後 <span id="ticketCard-num"> 8 </span> 組
+                            </p>
+                        </div>
+                        <p class="ticketCard-price">
+                            TWD <span id="ticketCard-price">$1280</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="ticketCard">
+                <div class="ticketCard-img">
+                    <img src="img/photo-1477894387642-00a731c511b3@2x.png" alt="">
+                    <div class="ticketCard-region">台北</div>
+                    <div class="ticketCard-rank">8.6</div>
+                </div>
+                <div class="ticketCard-content">
+                    <h3 class="ticketCard-name">
+                        綠島自由行套裝行程
+                    </h3>
+                    <p class="ticketCard-description">
+                        嚴選超高CP值綠島自由行套裝行程，多種綠島套裝組合，提供台東綠島來回船票、綠島環島機車、綠島民宿住宿，行程加贈『綠島浮潛體驗』以及『綠島生態導覽』，讓你用輕鬆的綠島套裝自由行，也能深度認識綠島在地文化。
+                    </p>
+                    <div class="ticketCard-info">
+                        <div class="ticketCard-num">
+                            <p>
+                                <span><i class="fas fa-exclamation-circle"></i></span> 
+                                剩下最後 <span id="ticketCard-num"> 8 </span> 組
+                            </p>
+                        </div>
+                        <p class="ticketCard-price">
+                            TWD <span id="ticketCard-price">$1280</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <div class="cantFind-area">
+            <h3>查無此關鍵字資料</h3>
+            <img src="img/Mask Group 1.svg" alt="">
+        </div>
+    </section>
+</body>
+<script src="js/all.js"></script>
+</html>

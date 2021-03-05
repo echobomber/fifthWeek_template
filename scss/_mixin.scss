@@ -1,0 +1,15 @@
+@mixin rwd($width){
+    @media (min-width: $width){
+        @content;
+    }
+}
+@mixin ipad{
+    @media (min-width: 768px){
+        @content;
+    }
+}
+@mixin mobile{
+    @media (min-width: 767px){
+        @content;
+    }
+}

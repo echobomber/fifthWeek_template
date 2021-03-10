@@ -1,10 +1,25 @@
 $primary-color: #00807E;
 $secondary-color:#64C3BF;
-$bg-gray-color: #F7F7F7;
-$alert-message-color: #B21C01;
+$bg-color: #F7F7F7;
+$danger-color: #B21C01;
+// mixins
+@mixin ipad{
+    @media (max-width: 768px){
+        @content;
+    }
+}
+@mixin mobile{
+    @media (max-width: 767px){
+        @content;
+    }
+}
 //
 *, *::after, *::before{
     box-sizing: border-box;
+    transition: all .2s;
+}
+html, body{
+    line-height: 1.5;
 }
 img{
     max-width: 100%;
@@ -13,25 +28,37 @@ img{
 body{
     font-family: "Microsoft JhengHei";
 }
-.addTicket-panel, .keywordSearch-panel{
+.addTicket-panel{
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 12px;
 }
 .addTicket-panel{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     max-width: 920px;
-    margin: 0 auto;
     margin: 120px auto 100px;
     padding: 60px 0;
+    @include ipad() {
+        margin: 0 auto;
+        padding-top: 0;
+        box-shadow: none;
+    }
 }
-
 .addTicket-img, .addTicket-form{
     width: 38%;
+    @include ipad() {
+        width: 90%;
+    }
 }
 .addTicket-img{
     img{
         margin: 0 auto 21px;
+    }
+    @include ipad() {
+        img:nth-child(2){
+            display: none;
+        }
     }
 }
 .title{
@@ -39,7 +66,6 @@ body{
     border-bottom: 3px solid $primary-color;
     font-size: 1.5rem;
     font-weight: bold;
-    line-height: 2rem;
     margin-bottom: 36px;
     span{
         margin-right: 6px;
@@ -48,29 +74,35 @@ body{
 .addTicket-form{
     display: flex;
     flex-direction: column;
-    li{
-        display: flex;
-        justify-content: space-between;
+    .form-group{
         margin-bottom: 16px;
     }
     label{
         color: $primary-color;
         font-weight: bold;
-        margin-top: 12px;
+        margin-bottom: 5px;
     }
 }
 .addTicket-input{
-    width: 72%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include mobile() {
+        flex-direction: column;
+        align-items: start;
+    }
     input, textarea, select{
-        width: 100%;
+        width: 72%;
         text-indent: 0.5rem;
-        background-color: $bg-gray-color;
+        background-color: $bg-color;
         color:#818A91;
         font-size: 1rem;
         border: none;
         border-bottom: 1px solid $primary-color;
         min-height: 38px;
-        line-height: 1.375rem;
+        @include mobile() {
+            width: 100%;
+        }
     }
     textarea::placeholder{
         font-size: 1rem;
@@ -81,159 +113,170 @@ body{
     }
 }
 .alert-message{
-    color: $alert-message-color;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3px;
+    color: $danger-color;
     font-size: 0.85rem;
-    line-height: 24px;
+    p{
+        width: 72%;
+        @include mobile() {
+            width: 100%;
+        }
+    }
     span{
         margin-left: 5px;
         font-weight: bold;
     }
+    display: none;
 }
 .addTicket-btn{
     align-self: flex-end;
-    border: none;
     font-size: 1.25rem;
-    line-height: 25px;
     padding: 10px 40px;
+    @include mobile() {
+        align-self: center;
+    }
 }
 .btn{
+    border: none;
     background-color: $primary-color;
     color: #FFF;
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    transition: all .2s;
     &:hover{
         background-color: $secondary-color;
     }
 }
 .main-content{
-    background-color: $bg-gray-color;
+    background-color: $bg-color;
     padding-bottom: 100px;
-}
-.search-area{
-    max-width: 920px;
-    margin: 0 auto;
-    position: relative;
-    top: -40px;
-}
-.keywordSearch-panel{
-    background-color: #fff;
-    padding: 21px 65px;
-    margin-bottom: 16px;
-}
-.keywordSearch{
-    display: flex;
-    align-items: center;
-    input{
-        text-indent: 0.5rem;
-        min-height: 38px;
-        width: 90%;
-        border: none;
-        border-top: 1px solid #CED4DA;
-        border-left: 1px solid #CED4DA;
-        border-bottom: 1px solid #CED4DA;
-        border-radius: 5px 0 0 5px;
+    @include mobile() {
+        padding-bottom: 30px;
     }
 }
-.search-btn{
-    display: block;
-    text-decoration: none;
-    line-height: 38px;
-    min-height: 38px;
-    width: 10%;
-    font-size: 1rem;
-    border-radius: 0 5px 5px 0;
-}
-.otherSearch{
+.search-area{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 50px 0;
+    p{
+        color: #818A91;
+    }
+    @include ipad() {
+        flex-direction: column;
+        justify-content: center;
+    }
 }
-.otherSearch-select{
-    width: 40%;
-}
-.regionSearch, .priceSearch{
+.regionSearch{
+    width: 27.5%;
     min-height: 38px;
-    line-height: 38px;
     text-indent: 0.5rem;
     color:#818A91;
     font-size: 1rem;
     border: 1px solid #CED4DA;
     border-radius: 5px;
+    margin-right: 2.5%;
+    @include ipad() {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 80%;
+    }
 }
-.otherSearch-select{
-    display: flex;
-}
-.regionSearch{
-    width: 57%;
-    margin-right: 3%;
-}
-.priceSearch{
-    width: 40%;
-}
-.searchResult-text{
-    color: #818A91;
-}
+// 
 .ticketCard-area{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     max-width: 1100px;
     margin: 0 auto;
 }
 .ticketCard{
-    max-width: 350px;
+    width: 31.3333%;
     background-color: #fff;
     box-shadow: 0px 3px 6px #00000029;
     border: 1px solid #DEE2E6;
     border-radius: 5px;
     margin-bottom: 38px;
+    margin-right: 2%;
+    @include ipad() {
+        width: 46%;
+        margin: 0 2% 40px;
+    }
+    @include mobile(){
+        width: 90%;
+        margin: 0 5% 30px;
+    }
 }
 .ticketCard-img{
     position: relative;
+    a{
+        display: block;
+        overflow: hidden;
+    }
+    img{
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        &:hover{
+            transform: scale(1.15);
+        }
+    } 
+}
+.ticketCard-region, .ticketCard-rank{
+    position: absolute;
+    border-radius: 0 5px 5px 0px;
+    color: #FFF;
+    text-align: center;
 }
 .ticketCard-region{
-    position: absolute;
     top: -13px;
     left: 0;
     font-size: 1.25rem;
     background-color: $secondary-color;
-    border-radius: 0 5px 5px 5px;
-    padding: 8px 20px;
-    line-height: 28px;
-    color: #fff;
+    padding: 12px 20px;
 }
 .ticketCard-rank{
-    position: absolute;
     bottom: -16px;
     left: 0;
     background-color: $primary-color;
     padding: 5px 8px;
-    line-height: 22px;
-    color: #FFF;
+    min-width: 40px;
 }
 .ticketCard-content{
     padding: 20px;
+    // 讓 .ticketCard-info 永遠置底
+    height: calc(100% - 180px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .ticketCard-name{
-    font-size: 1.5rem;
+    display: block;
+    text-decoration: none;
     color: $primary-color;
+    font-size: 1.5rem;
     font-weight: bold;
     padding-bottom: 5px;
     border-bottom: 2px solid $primary-color;
     margin-bottom: 20px;
+    &:hover{
+        color: $secondary-color;
+    }
 }
 .ticketCard-description{
-    line-height: 24px;
     color: #818A91;
     margin-bottom: 32px;
 }
 .ticketCard-info{
     color: $primary-color;
+    font-family: 'Roboto', sans-serif;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.ticketCard-num{
     font-weight: bold;
 }
 .ticketCard-price{
@@ -255,5 +298,8 @@ body{
     }
     img{
         margin: 0 auto;
+    }
+    @include ipad() {
+        margin-top: 0px;
     }
 }

@@ -27,9 +27,9 @@
                     <input type="text" id="ticketName" placeholder="請填寫套票名稱" name="套票名稱">
                 </div>
                 <div class="alert-message">
-                    <p>
-                        <i class="fas fa-exclamation-circle"></i>
-                        <span id="ticketName-message">必填!</span>
+                    <p id="ticketName-message" data-message="套票名稱">
+                        <!-- <i class="fas fa-exclamation-circle"></i>
+                        <span>必填!</span> -->
                     </p>
                 </div>
             </div>
@@ -39,9 +39,9 @@
                     <input type="text" id="ticketImgUrl" placeholder="請填寫圖片網址" name="圖片網址">
                 </div>
                 <div class="alert-message">
-                    <p>
-                        <i class="fas fa-exclamation-circle"></i>
-                        <span id="ticketImgUrl-message">必填!</span>
+                    <p id="ticketImgUrl-message" data-message="圖片網址">
+                        <!-- <i class="fas fa-exclamation-circle"></i>
+                        <span>必填!</span> -->
                     </p>
                 </div>
             </div>
@@ -49,16 +49,18 @@
                 <div class="addTicket-input">
                     <label for="ticketRegion">景點地區</label>
                     <select id="ticketRegion" name="景點地區">
-                        <option value="請選擇景點地區" disabled selected hidden>請選擇景點地區</option>
+                        <option value="" disabled selected hidden>請選擇景點地區</option>
                         <option value="台北">台北</option>
                         <option value="台中">台中</option>
                         <option value="高雄">高雄</option>
+                        <option value="桃園">桃園</option>
+                        <option value="新竹">新竹</option>
                     </select>
                 </div>
                 <div class="alert-message">
-                    <p>
-                        <i class="fas fa-exclamation-circle"></i>
-                        <span id="ticketRegion-message">必填!</span>
+                    <p id="ticketRegion-message" data-message="景點地區">
+                        <!-- <i class="fas fa-exclamation-circle"></i>
+                        <span>必填!</span> -->
                     </p>
                 </div>
             </div>
@@ -68,9 +70,9 @@
                     <input type="number" id="ticketPrice" placeholder="請填寫套票金額" name="套票金額" min="0">
                 </div>
                 <div class="alert-message">
-                    <p>
-                        <i class="fas fa-exclamation-circle"></i>
-                        <span id="ticketPrice-message">必填!</span>
+                    <p id="ticketPrice-message" data-message="套票金額">
+                        <!-- <i class="fas fa-exclamation-circle"></i>
+                        <span>必填!</span> -->
                     </p>
                 </div>
             </div>
@@ -79,24 +81,22 @@
                     <label for="ticketNum">套票組數</label>
                     <input type="number" id="ticketNum" placeholder="請填寫套票組數" name="套票組數" min="1">
                 </div>
-
                 <div class="alert-message">
-                    <p>
-                        <i class="fas fa-exclamation-circle"></i>
-                        <span id="ticketNum-message">必填!</span>
+                    <p id="ticketNum-message" data-message="套票組數">
+                        <!-- <i class="fas fa-exclamation-circle"></i>
+                        <span>必填!</span> -->
                     </p>
                 </div>
             </div>
             <div class="form-group">
                 <div class="addTicket-input">
-                    <label for="ticketRank">套票星級</label>
-                    <input type="number" id="ticketRank" placeholder="請填寫套票星級" name="套票星級" min="1" max="10">
+                    <label for="ticketRate">套票星級</label>
+                    <input type="number" id="ticketRate" placeholder="請填寫套票星級" name="套票星級" min="1" max="10">
                 </div>
-
                 <div class="alert-message">
-                    <p>
-                        <i class="fas fa-exclamation-circle"></i>
-                        <span id="ticketRank-message">必填!</span>
+                    <p id="ticketRate-message" data-message="套票星級">
+                        <!-- <i class="fas fa-exclamation-circle"></i>
+                        <span>必填!</span> -->
                     </p>
                 </div>
             </div>
@@ -105,11 +105,10 @@
                     <label for="ticketDescription">套票描述</label>
                     <textarea name="套票描述" id="ticketDescription" placeholder="請填寫套票描述 (限 100 字)"></textarea>
                 </div>
-
                 <div class="alert-message">
-                    <p>
-                        <i class="fas fa-exclamation-circle"></i>
-                        <span id="ticketDescription-message">必填!</span>
+                    <p id="ticketDescription-message" data-message="套票描述">
+                        <!-- <i class="fas fa-exclamation-circle"></i>
+                        <span>必填!</span> -->
                     </p>
                 </div>
             </div>
@@ -121,16 +120,18 @@
         <div class="search-area">
             <select name="" class="regionSearch">
                 <option value="地區搜尋" disabled selected hidden>地區搜尋</option>
-                <option value="全部地區">全部地區</option>
+                <option value="">全部地區</option>
                 <option value="台北">台北</option>
                 <option value="台中">台中</option>
                 <option value="高雄">高雄</option>
+                <option value="桃園">桃園</option>
+                <option value="新竹">新竹</option>
             </select>
-            <p>本次搜尋共 <span id="searchResult-text">3</span> 筆資料</p>
+            <p id="searchResult-text">本次搜尋共 3 筆資料</p>
         </div>
         <!-- 套票卡片區 -->
         <ul class="ticketCard-area">
-            <!-- <li class="ticketCard">
+            <li class="ticketCard">
                 <div class="ticketCard-img">
                     <a href="#">
                         <img src="https://i.imgur.com/QXa1fMZ.png" alt="">
@@ -217,7 +218,7 @@
                         </p>
                     </div>
                 </div>
-            </li> -->
+            </li>
         </ul>
         <!-- 查無關鍵字區 -->
         <div class="cantFind-area">
@@ -227,5 +228,6 @@
     </section>
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
 <script src="js/all.js"></script>
 </html>
